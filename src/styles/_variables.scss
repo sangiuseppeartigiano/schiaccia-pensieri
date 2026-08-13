@@ -1,0 +1,26 @@
+// Palette "Schiaccia Pensieri" - tema beige tenue coerente col logo
+:root {
+  --color-primary: #e8dcc8; // beige principale (sfondi, header)
+  --color-primary-light: #f3ecdf; // beige molto chiaro (sezioni alternate)
+  --color-primary-dark: #c9b896; // beige/tortora più scuro (bordi, bottoni secondari)
+  --color-accent: #8b5e3c; // terracotta/marrone caldo (CTA, hover, link)
+  --color-accent-dark: #6f4a2e; // terracotta scuro (hover su CTA)
+  --color-background: #fbf7f0; // crema, sfondo pagina
+  --color-surface: #ffffff; // sfondo card
+  --color-text: #3a322a; // marrone scuro, testo principale
+  --color-text-muted: #6b6053; // testo secondario
+  --color-success: #4c7a4c; // badge "aperto"
+  --color-danger: #a34a3a; // badge "chiuso"
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 2px 8px rgba(58, 50, 42, 0.08);
+  --shadow-md: 0 6px 20px rgba(58, 50, 42, 0.12);
+
+  --max-width: 1160px;
+}

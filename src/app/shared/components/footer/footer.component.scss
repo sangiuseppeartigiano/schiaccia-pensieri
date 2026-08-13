@@ -1,0 +1,86 @@
+@use '../../../../styles/mixins' as *;
+
+.footer {
+  background: var(--color-primary-dark);
+  color: var(--color-text);
+  margin-top: 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0 1.25rem;
+
+    @media (max-width: 520px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__col {
+    h3,
+    h4 {
+      color: var(--color-text);
+    }
+
+    a {
+      color: var(--color-text);
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px rgba(58, 50, 42, 0.15);
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+
+    a {
+      color: var(--color-text);
+      display: inline-flex;
+      align-items: center;
+
+      &:hover {
+        color: var(--color-accent-dark);
+      }
+    }
+  }
+
+  &__social-link--text {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  &__contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(58, 50, 42, 0.15);
+    padding: 0.75rem 0;
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--color-text-muted);
+  }
+}

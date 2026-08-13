@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <div class="footer__brand">
+        <img class="footer__logo" src="images/logo.png" alt="Logo {{ business.name }}" width="52" height="52" />
+        <h3>{{ business.name }}</h3>
+      </div>
+      <div class="footer__social">
+  <a [href]="business.social.facebookUrl" target="_blank" rel="noopener" aria-label="Facebook"><app-icon name="facebook"></app-icon></a>
+  <a [href]="business.social.instagramUrl" target="_blank" rel="noopener" aria-label="Instagram"><app-icon name="instagram"></app-icon></a>
+  <a [href]="business.tripadvisor.url" target="_blank" rel="noopener" class="footer__social-link" aria-label="TripAdvisor">
+  <app-icon name="tripadvisor" [size]="20"></app-icon>
+</a>
+</div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contatti</h4>
+     <p>
+  <a [href]="business.phoneHref" class="footer__contact-link"><app-icon name="phone" [size]="16"></app-icon> {{ business.phone }}</a><br />
+  <a [href]="'mailto:' + business.email" class="footer__contact-link"><app-icon name="email" [size]="16"></app-icon> {{ business.email }}</a>
+</p>
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>© {{ currentYear }} {{ business.name }} · P.IVA da inserire · Tutti i diritti riservati</p>
+  </div>
+</footer>

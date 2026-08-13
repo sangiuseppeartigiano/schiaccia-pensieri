@@ -1,0 +1,84 @@
+<section class="section contact">
+  <div class="container">
+    <h1>Contatti</h1>
+    <p>
+      Siamo felici di rispondere a domande, richieste di prenotazione o disponibilità per
+      eventi. Chiamaci, scrivici o vieni a trovarci direttamente in pizzeria.
+    </p>
+
+    <div class="contact__grid">
+      <div class="contact__info">
+        <dl class="contact__list">
+          <div>
+            <dt>Indirizzo</dt>
+            <dd>
+              <span class="contact__icon-link contact__icon-link--static">
+                <app-icon name="location" [size]="16"></app-icon>
+                <span>
+                  {{ business.address.street }}<br />
+                  {{ business.address.postalCode }} {{ business.address.city }} ({{ business.address.province }})
+                </span>
+              </span>
+            </dd>
+          </div>
+          <div>
+            <dt>Telefono</dt>
+            <dd>
+              <a [href]="business.phoneHref" class="contact__icon-link">
+                <app-icon name="phone" [size]="16"></app-icon> {{ business.phone }}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd>
+              <a [href]="'mailto:' + business.email" class="contact__icon-link">
+                <app-icon name="email" [size]="16"></app-icon> {{ business.email }}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>Social</dt>
+            <dd>
+              <div class="contact__social-row">
+                <a [href]="business.social.facebookUrl" target="_blank" rel="noopener" class="contact__social-link" aria-label="Facebook">
+                  <app-icon name="facebook" [size]="20"></app-icon>
+                </a>
+                <a [href]="business.social.instagramUrl" target="_blank" rel="noopener" class="contact__social-link" aria-label="Instagram">
+                  <app-icon name="instagram" [size]="20"></app-icon>
+                </a>
+                <a [href]="business.tripadvisor.url" target="_blank" rel="noopener" class="contact__social-link" aria-label="TripAdvisor">
+                  <app-icon name="tripadvisor" [size]="20"></app-icon>
+                </a>
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="contact__hours-card">
+        <h2>Orari di apertura</h2>
+        <table class="contact__hours">
+          <tbody>
+            @for (day of business.openingHours; track day.dayOfWeek) {
+              <tr>
+                <th scope="row">{{ day.label }}</th>
+                @if (day.closed) {
+                  <td>Chiuso</td>
+                } @else {
+                  <td>
+                    @for (period of day.periods; track $index; let last = $last) {
+                      {{ period.open }}–{{ period.close }}{{ last ? '' : ' · ' }}
+                    }
+                  </td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <app-map-embed></app-map-embed>
+  </div>
+</section>

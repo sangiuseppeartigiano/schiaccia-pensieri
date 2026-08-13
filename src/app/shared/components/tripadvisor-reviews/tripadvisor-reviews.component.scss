@@ -1,0 +1,47 @@
+@use '../../../../styles/mixins' as *;
+
+.ta-reviews {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  &__widget {
+    border: none;
+    display: block;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  &__score {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+}

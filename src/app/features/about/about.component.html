@@ -1,0 +1,30 @@
+<section class="section about">
+  <div class="container about__intro">
+    <h1>Chi siamo</h1>
+    <p>
+      <!-- TODO: sostituire con il testo reale "chi siamo" fornito dal titolare -->
+      {{ business.name }} nasce a Soci, nel comune di Bibbiena, nel cuore del Casentino. La nostra
+      pizzeria unisce la tradizione della pizza italiana a ingredienti scelti con cura, in un
+      ambiente accogliente pensato per famiglie, amici e chi è di passaggio nella valle.
+      Crediamo in un servizio cordiale e attento, la stessa cura che metteremo nel prepararvi
+      ogni pizza.
+    </p>
+    <ul class="about__features">
+      @for (feature of business.features; track feature) {
+        <li>{{ feature }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section about__gallery-section">
+  <div class="container">
+    <h2>Un po' di noi</h2>
+    <div class="about__gallery">
+      @for (ph of galleryPlaceholders; track $index) {
+        <!-- TODO: sostituire ogni riquadro con una foto reale del locale/piatti/team -->
+        <div class="about__gallery-item" aria-hidden="true"></div>
+      }
+    </div>
+  </div>
+</section>

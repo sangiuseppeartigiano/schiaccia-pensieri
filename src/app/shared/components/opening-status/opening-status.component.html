@@ -1,0 +1,6 @@
+@if (status) {
+  <span class="status" [class.status--open]="status.isOpen" [class.status--closed]="!status.isOpen">
+    <span class="status__dot"></span>
+    {{ status.message }}
+  </span>
+}

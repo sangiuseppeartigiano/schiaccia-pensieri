@@ -1,0 +1,98 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    @for (img of heroImages; track img; let i = $index) {
+      <img [src]="img" class="hero__bg-image" [class.hero__bg-image--active]="i === activeImageIndex" alt="" />
+    }
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="container hero__inner">
+    <app-opening-status class="hero__status"></app-opening-status>
+    <h1>{{ business.name }}</h1>
+    <p class="hero__tagline">Crediamo nei tempi giusti, quelli che trasformano un impasto in qualcosa di buono. Qui il tempo è un ingrediente e si sente.</p>
+    <div class="hero__actions">
+      <a [href]="business.phoneHref" class="btn-primary">Chiamaci per prenotare</a>
+      <a routerLink="/menu" class="btn-secondary">Guarda il menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- Chi siamo breve + Orari -->
+<section class="section about-preview">
+  <div class="container about-preview__grid">
+    <div class="about-preview__photo" aria-hidden="true"></div>
+    <div>
+      <h2>Una pizzeria nel cuore del Casentino</h2>
+      <p>
+        Ogni mia SCHIACCIA racconta la nostra terra, le nostre radici e la passione per questo lavoro
+      </p>
+      <a routerLink="/chi-siamo" class="btn-secondary">Scopri di più su di noi →</a>
+    </div>
+    <div class="about-preview__hours">
+      <h3>Orari di apertura</h3>
+      <ul class="about-preview__hours-list">
+        @for (day of business.openingHours; track day.dayOfWeek) {
+          <li>
+            <span class="about-preview__hours-day">{{ day.label }}</span>
+            @if (day.closed) {
+              <span>Chiuso</span>
+            } @else {
+              <span>
+                @for (period of day.periods; track $index; let last = $last) {
+                  {{ period.open }}–{{ period.close }}{{ last ? '' : ' · ' }}
+                }
+              </span>
+            }
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Anteprima menu -->
+<section class="section menu-preview">
+  <div class="container">
+    <div class="menu-preview__header">
+      <h2>Le nostre specialità</h2>
+      <a routerLink="/menu" class="btn-secondary">Vedi il menu completo →</a>
+    </div>
+    <div class="menu-preview__grid">
+      @for (item of featuredItems; track item.name) {
+        <article class="menu-preview__card">
+          <h3>{{ item.name }}</h3>
+          @if (item.description) {
+            <p>{{ item.description }}</p>
+          }
+          <span class="menu-preview__price">{{ item.price }}</span>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Recensioni TripAdvisor -->
+<section class="section reviews">
+  <div class="container">
+    <app-tripadvisor-reviews></app-tripadvisor-reviews>
+  </div>
+</section>
+
+<!-- Mappa / dove siamo -->
+<section class="section location">
+  <div class="container location__grid">
+    <div>
+      <h2>Dove siamo</h2>
+      <p>
+        {{ business.address.street }}<br />
+        {{ business.address.postalCode }} {{ business.address.city }} ({{ business.address.province }})
+      </p>
+      <p>
+  <a [href]="business.phoneHref" class="location__icon-link"><app-icon name="phone" [size]="16"></app-icon> {{ business.phone }}</a><br />
+  <a [href]="'mailto:' + business.email" class="location__icon-link"><app-icon name="email" [size]="16"></app-icon> {{ business.email }}</a>
+</p>
+      <a routerLink="/contatti" class="btn-secondary">Vai ai contatti →</a>
+    </div>
+    <app-map-embed></app-map-embed>
+  </div>
+</section>

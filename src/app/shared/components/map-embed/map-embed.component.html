@@ -1,0 +1,11 @@
+<div class="map-embed">
+  <iframe
+    [src]="safeMapUrl"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    [title]="'Mappa: ' + business.name"
+  ></iframe>
+  <a class="map-embed__link" [href]="business.address.mapsLinkUrl" target="_blank" rel="noopener">
+    Apri in Google Maps →
+  </a>
+</div>

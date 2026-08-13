@@ -1,0 +1,44 @@
+<section class="section menu-page">
+  <div class="container">
+    <header class="menu-page__header">
+      <h1>Il nostro menu</h1>
+    </header>
+
+    <nav class="menu-page__jumplinks" aria-label="Categorie menu">
+      @for (category of categories; track category.id) {
+        <a [href]="'#' + category.id">{{ category.name }}</a>
+      }
+    </nav>
+
+    @for (category of categories; track category.id) {
+      <section class="menu-category" [id]="category.id">
+        <h2>{{ category.name }}</h2>
+        <div class="menu-category__list">
+          @for (item of category.items; track item.name) {
+            <article class="menu-item" [class.menu-item--featured]="item.featured">
+              <div class="menu-item__info">
+                <h3>
+                  {{ item.name }}
+                  @if (item.featured) {
+                    <span class="menu-item__badge">Consigliata</span>
+                  }
+                </h3>
+                @if (item.description) {
+                  <p>{{ item.description }}</p>
+                }
+                @if (item.tags?.length) {
+                  <div class="menu-item__tags">
+                    @for (tag of item.tags; track tag) {
+                      <span class="menu-item__tag">{{ tag }}</span>
+                    }
+                  </div>
+                }
+              </div>
+              <span class="menu-item__price">{{ item.price }}</span>
+            </article>
+          }
+        </div>
+      </section>
+    }
+  </div>
+</section>

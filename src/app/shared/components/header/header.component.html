@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header__bar container">
+    <a routerLink="/" class="header__brand" (click)="closeMenu()">
+      <img class="header__logo" src="images/logo.png" alt="Logo {{ business.name }}" width="44" height="44" />
+      <span class="header__brand-text">
+        <span class="header__brand-name">{{ business.name }}</span>
+        <span class="header__brand-tagline">Pizzeria</span>
+      </span>
+    </a>
+
+    <button
+      class="header__toggle"
+      type="button"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Apri il menu di navigazione"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header__nav" [class.header__nav--open]="isMenuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Menu</a>
+      <a routerLink="/chi-siamo" routerLinkActive="active" (click)="closeMenu()">Chi siamo</a>
+      <a routerLink="/contatti" routerLinkActive="active" (click)="closeMenu()">Contatti</a>
+    </nav>
+  </div>
+</header>
